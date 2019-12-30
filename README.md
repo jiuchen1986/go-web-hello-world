@@ -33,6 +33,8 @@
 > - Set proxy if need
 >   - `export http_proxy=proxy_url`
 >   - `export https_proxy=proxy_url`
+>   - `echo 'Acquire::http::Proxy "proxy_url";' > /etc/apt/apt.conf.d/100proxy.conf`
+>   - `echo 'Acquire::https::Proxy "proxy_url";' >> /etc/apt/apt.conf.d/100proxy.conf`
 > - Check current kernel
 >   - `uname -r`, got `4.4.0-142-generic`
 > - Upgrade the system
