@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: go-web
+  name: go-web-hello-world
+spec:
+  type: NodePort
+  ports:
+  - port: 8081
+    protocol: TCP
+    targetPort: 8081
+    nodePort: 31080
+  selector:
+    app: go-web
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: go-web
+  name: go-web-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-web
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: go-web
+    spec:
+      containers:
+      - image: jiuchen1986/go-web-hello-world:v1
+        name: go-web-hello-world
+        ports:
+        - containerPort: 8081
