@@ -189,6 +189,13 @@
 > - Check docker service status
 >   - `systemctl status docker`
 
+> **Optional Steps:**
+
+> - Add proxies to docker service
+>   - add `Environment="http_proxy=proxy_url" "https_proxy=proxy_url"`, to `Service` section at `/lib/systemd/system/docker.service`
+>   - `systemctl daemon-reload`
+>   - `systemctl restart docker`
+
 
 <br/>
 
